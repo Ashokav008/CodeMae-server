@@ -8,11 +8,11 @@ const { Server } = require("socket.io");
 const server = http.createServer(app);
 const io = new Server(server);
 //this will use all the builded files for serving
-app.use(express.static("build"));
+// app.use(express.static("build"));
 //act as a middleware for any reuest for the server and sent it to the index file to handle that request/
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
-});
+// app.use((req, res, next) => {
+//   res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
 
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
