@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const http = require("http");
 const path = require("path");
+const ip = require("ip");
+const ipAddress = ip.address();
 const { Server } = require("socket.io");
 // const ACTIONS = require("./Actions");
 
@@ -65,6 +67,7 @@ io.on("connection", (socket) => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () =>
-  console.log(`Listening/waiting for connection on port ${PORT}`)
-);
+server.listen(PORT, () => {
+  console.log(`Listening/waiting for connection on port ${PORT}`);
+  console.log(`Network access via: ${ipAddress}:${PORT}!`);
+});
