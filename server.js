@@ -45,12 +45,12 @@ io.on("connection", (socket) => {
     });
   });
 
-  socket.on("code_change", ({ roomId, code }) => {
-    socket.in(roomId).emit("code_change", { code });
+  socket.on("code-change", ({ roomId, code }) => {
+    socket.in(roomId).emit("code-change", { code });
   });
 
   socket.on("sync-code", ({ socketId, code }) => {
-    io.to(socketId).emit("code_change", { code });
+    io.to(socketId).emit("code-change", { code });
   });
 
   socket.on("disconnecting", () => {
